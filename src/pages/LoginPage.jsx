@@ -36,6 +36,10 @@ https://v1.turbotravel.uz/api/auth/signin` , values);
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
+        <div style={{textAlign:"center"}}>
+          <h1>Welcome</h1>
+          <p>Sign in to your account</p>
+        </div>
 
         <Form.Item
           label="Phone number"
