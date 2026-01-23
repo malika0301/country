@@ -1,12 +1,12 @@
 import React from 'react'
 import useGet from '../hooks/useGet'
-import ActorTable from '../components/ActorTable'
+import MovieTable from '../components/MovieTable'
 
 const Movie = () => {
   const { data } = useGet({ url: "movie" })
   return (
     <div>
-      <ActorTable data={data} />
+      <MovieTable data={data} />
     </div>
   )
 }
