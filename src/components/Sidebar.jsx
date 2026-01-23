@@ -29,28 +29,28 @@ const Sidebar = () => {
           items={[
             {
               key: '1',
-              icon: <AiOutlineGlobal />,
-              label: <Link to={"admin/country"}>Countries</Link>,
+              icon: <RxPerson />,
+              label: <Link to={"admin/actor"}>Actors</Link>,
             },
             {
               key: '2',
-              icon: <RxPerson />,
-              label: <Link to={"admin/cities"}>Tours and cities</Link> ,
+              icon: <AiOutlineGlobal />,
+              label: <Link to={"admin/category"}>Category</Link> ,
             },
             {
               key: '3',
               icon: <CiCalendar />,
-              label: <Link to={"admin/tours"}>Tour paketlar</Link>,
+              label: <Link to={"admin/director"}>Director</Link>,
             },
             {
               key: '4',
               icon: <LuBookOpenText />,
-              label: <Link to={"admin/hotels"}>Hotel</Link>,
+              label: <Link to={"admin/genre"}>Genre</Link>,
             },
             {
               key: '5',
               icon: <LuBookOpenText />,
-              label: <Link to={"admin/destination"}> Destination</Link>,
+              label: <Link to={"admin/movie"}>Movie</Link>,
             },
           ]}
         />

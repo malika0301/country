@@ -8,12 +8,11 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const onFinish = async (values)=> {
     try {
-      let res = await axios.post(`
-https://v1.turbotravel.uz/api/auth/signin` , values);
+      let res = await axios.post(`https://dummyjson.com/auth/login` , values);
       const token = res?.data?.data?.tokens?.accessToken?.token;
       localStorage.setItem("token", token);
       toast.success("Вы успешно зашли в систему!")
-      navigate("admin/country")
+      navigate("admin/actor")
     } catch (err) {
       toast.error("Вы ввели неверный номер или пароль!");
       console.log(err);
@@ -38,14 +37,14 @@ https://v1.turbotravel.uz/api/auth/signin` , values);
       >
         <div style={{textAlign:"center"}}>
           <h1>Welcome</h1>
-          <p>Sign in to your account</p>
+          <p style={{color:"gray"}}>Sign in to your account</p>
         </div>
 
         <Form.Item
-          label="Phone number"
-          name="phone_number"
+          label="Username"
+          name="username"
           layout='vertical'
-          rules={[{ required: true, message: 'Please input your number!' }]}
+          rules={[{ required: true, message: 'Please input your username!' }]}
         >
           <Input />
         </Form.Item>
