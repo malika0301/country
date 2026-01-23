@@ -6,7 +6,7 @@ const columns = [
         title: 'Uz',
         dataIndex: 'title_uz',
         key: 'image',
-        render: (text) => <p>{text</p>,
+        render: (text) => <p>{text}</p>,
     },
     {
         title: 'Ru',
@@ -18,17 +18,11 @@ const columns = [
         title: 'En',
         dataIndex: 'title_en',
         key: 'year',
-        render: text => <p>{text}-year</p>,
-    },
-    {
-        title: 'Biography',
-        dataIndex: 'biography',
-        key: 'name',
         render: text => <p>{text}</p>,
     },
     {
-        title: 'Country',
-        dataIndex: 'country',
+        title: 'Trailer',
+        dataIndex: 'trailer_url',
         key: 'location',
         render: text => <p>{text}</p>,
     },
@@ -44,5 +38,5 @@ const columns = [
     },
 ];
 
-const ActorTable = ({ data }) => <Table columns={columns} dataSource={data} />;
-export default ActorTable;
+const MovieTable = ({ data }) => <Table columns={columns} dataSource={data} />;
+export default MovieTable;
