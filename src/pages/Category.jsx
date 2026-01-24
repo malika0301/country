@@ -3,10 +3,10 @@ import useGet from '../hooks/useGet'
 import CategoryTable from '../components/CategoryTable'
 
 const Category = () => {
-  const { data } = useGet({ url: "category" })
+  const { data , getData } = useGet({ url: "category" })
   return (
     <div>
-      <CategoryTable data={data} />
+      <CategoryTable data={data} getData={getData} />
     </div>
   )
 }

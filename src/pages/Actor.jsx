@@ -4,10 +4,10 @@ import ActorTable from '../components/ActorTable';
 
 
 const Actor = () => {
-  const {data} = useGet({url:"actor"})
+  const {data , getData} = useGet({url:"actor"})
   return (
     <div>
-      <ActorTable data={data}/>
+      <ActorTable getData={getData} data={data}/>
     </div>
   )
 }

@@ -3,10 +3,10 @@ import useGet from '../hooks/useGet'
 import DirectorTable from '../components/DirectorTable'
 
 const Director = () => {
-  const { data } = useGet({ url: "director" })
+  const { data, getData } = useGet({ url: "director" })
   return (
     <div>
-      <DirectorTable data={data} />
+      <DirectorTable data={data} getData={getData} />
     </div>
   )
 }

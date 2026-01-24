@@ -59,9 +59,10 @@ const LoginPage = () => {
         </Form.Item>
 
         <Form.Item label={null}>
-          <Button block type="primary" htmlType="submit">
-            Submit
-          </Button>
+            <Button block type="primary" htmlType="submit">
+              Submit
+            </Button>
+
         </Form.Item>
       </Form>
     </div>
