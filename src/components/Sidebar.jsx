@@ -12,6 +12,10 @@ import { AiOutlineGlobal } from 'react-icons/ai';
 import { RxPerson } from 'react-icons/rx';
 import { CiCalendar } from 'react-icons/ci';
 import { LuBookOpenText } from 'react-icons/lu';
+import { MdCategory, MdMovieFilter, MdOutlineMovieFilter } from 'react-icons/md';
+import { RiMovie2AiLine } from 'react-icons/ri';
+import { TbChairDirector } from 'react-icons/tb';
+import { BiSolidCameraMovie } from 'react-icons/bi';
 const { Header, Sider, Content } = Layout;
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -49,8 +53,28 @@ const Sidebar = () => {
             },
             {
               key: '5',
-              icon: <LuBookOpenText />,
+              icon: <RiMovie2AiLine />,
               label: <Link to={"admin/movie"}>Movie</Link>,
+            },
+            {
+              key: '6',
+              icon: <MdOutlineMovieFilter />,
+              label: <Link to={"admin/movie-actor"}>Movies and Actors</Link>,
+            },
+            {
+              key: '7',
+              icon: <MdCategory />,
+              label: <Link to={"admin/movie-category"}>Movies and Category</Link>,
+            },
+            {
+              key: '8',
+              icon: <TbChairDirector />,
+              label: <Link to={"admin/movie-director"}>Movies and Directors</Link>,
+            },
+            {
+              key: '9',
+              icon: <BiSolidCameraMovie />,
+              label: <Link to={"admin/movie-genre"}>Movies and Genre</Link>,
             },
           ]}
         />
