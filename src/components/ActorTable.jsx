@@ -4,15 +4,19 @@ import { FaTrash } from 'react-icons/fa';
 import ActorAddModal from './ActorAddModal';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useQueryClient } from '@tanstack/react-query';
 
 
-const ActorTable = ({ data, getData }) => {
+const ActorTable = ({ data}) => {
+    const queryClient = useQueryClient();
 
     async function deleteActor(id) {
         try {
             await axios.delete(`https://x8ki-letl-twmt.n7.xano.io/api:j6hO02gL/actor/${id}`)
             toast.success("Actor deleted!");
-            getData();
+            queryClient.invalidateQueries({
+                queryKey: ["actors"]
+            })
         } catch (err) {
             console.log(err);
 
@@ -63,16 +67,16 @@ const ActorTable = ({ data, getData }) => {
                 <Space size="middle">
                     <Button danger onClick={() => deleteActor(record.id)}>
                         Delete
-                        </Button>
+                    </Button>
                 </Space>
             ),
         },
-    ];
+    ]
     return (
         <div>
-            <ActorAddModal getData={getData} />
-            <Table columns={columns} dataSource={data} />;
+            <ActorAddModal />
+            <Table columns={columns} dataSource={data} />
         </div>
     )
 }
-export default ActorTable;
+export default ActorTable

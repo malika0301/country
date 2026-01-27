@@ -13,34 +13,38 @@ import MovieActor from './components/MovieActor'
 import MovieCategory from './components/MovieCategory'
 import MovieDirector from './components/MovieDirector'
 import MovieGenre from './components/MovieGenre'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const App = () => {
   const token = localStorage.getItem("token");
+  const queryClient = new QueryClient();
   
   return (
-    <BrowserRouter>
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        pauseOnHover
-        draggable
-      />
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          pauseOnHover
+          draggable
+        />
 
-      <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route element={token ? <Sidebar /> : <Navigate to="/" />} >
-          <Route path="admin/actor" element={<Actor />} />
-          <Route path="admin/movie-actor" element={<MovieActor />} />
-          <Route path="admin/movie-category" element={<MovieCategory />} />
-          <Route path="admin/movie-director" element={<MovieDirector />} />
-          <Route path="admin/movie-genre" element={<MovieGenre />} />
-          <Route path="admin/category" element={<Category />} />
-          <Route path="admin/director" element={<Director />} />
-          <Route path="admin/genre" element={<Genre />} />
-          <Route path="admin/movie" element={<Movie />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route element={token ? <Sidebar /> : <Navigate to="/" />} >
+            <Route path="admin/actor" element={<Actor />} />
+            <Route path="admin/movie-actor" element={<MovieActor />} />
+            <Route path="admin/movie-category" element={<MovieCategory />} />
+            <Route path="admin/movie-director" element={<MovieDirector />} />
+            <Route path="admin/movie-genre" element={<MovieGenre />} />
+            <Route path="admin/category" element={<Category />} />
+            <Route path="admin/director" element={<Director />} />
+            <Route path="admin/genre" element={<Genre />} />
+            <Route path="admin/movie" element={<Movie />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   )
 }
 

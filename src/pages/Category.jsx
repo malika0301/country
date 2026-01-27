@@ -1,12 +1,12 @@
 import React from 'react'
-import useGet from '../hooks/useGet'
 import CategoryTable from '../components/CategoryTable'
+import useReactQuery from './useReactQuery';
 
 const Category = () => {
-  const { data , getData } = useGet({ url: "category" })
+  const { data, isLoading } = useReactQuery({ url: "category", key: "categories" })
   return (
     <div>
-      <CategoryTable data={data} getData={getData} />
+      <CategoryTable data={data?.data}/>
     </div>
   )
 }

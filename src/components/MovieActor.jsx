@@ -1,15 +1,15 @@
 import React from 'react'
-import useGet from '../hooks/useGet';
 import MovieActorTable from '../components/MovieActorTable';
+import useReactQuery from '../pages/useReactQuery';
 
 
 const MovieActor = () => {
-    const { data: actor, getData: getActor } = useGet({ url: "actor" });
-    const { data: movie, getData: getMovie } = useGet({ url: "movie" });
-    const { data: movieActor, getData: getMovieActor } = useGet({ url: "movie_actor" });
+    const { data: actor } = useReactQuery({ url: "actor" , key:"actors" });
+    const { data: movie} = useReactQuery({ url: "movie" , key:"movies" });
+    const { data: movieActor } = useReactQuery({ url: "movie_actor" , key:"movie_actors" });
     return (
         <div>
-            <MovieActorTable actor={actor} getActor={getActor} movie={movie} getMovie={getMovie} movieActor={movieActor} getMovieActor={getMovieActor} />
+            <MovieActorTable actor={actor?.data} movie={movie?.data} movieActor={movieActor?.data} />
         </div>
     )
 }

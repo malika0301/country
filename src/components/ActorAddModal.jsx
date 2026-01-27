@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { Button, Form, Input, Modal } from 'antd';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useQueryClient } from '@tanstack/react-query';
 const ActorAddModal = (getData) => {
     const [open, setOpen] = useState(false);
     const [confirmLoading, setConfirmLoading] = useState(false);
     const [ setModalText] = useState('Content of the modal');
+    const queryClient = useQueryClient();
     const showModal = () => {
         setOpen(true);
     };
@@ -35,6 +37,9 @@ const ActorAddModal = (getData) => {
             toast.success("Information add!");
             setOpen(false);
             getData();
+            queryClient.invalidateQueries({
+                queryKey:["actors"]
+            })
         } catch (err) {
             console.log(err);
         }

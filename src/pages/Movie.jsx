@@ -1,12 +1,13 @@
 import React from 'react'
-import useGet from '../hooks/useGet'
 import MovieTable from '../components/MovieTable'
+import useReactQuery from './useReactQuery'
 
 const Movie = () => {
-  const { data , getData } = useGet({ url: "movie" })
+  const { data, isLoading } = useReactQuery({ url: "movie", key: "movies" })
+
   return (
     <div>
-      <MovieTable data={data} getData={getData} />
+      <MovieTable data={data?.data}/>
     </div>
   )
 }

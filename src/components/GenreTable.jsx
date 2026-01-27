@@ -4,15 +4,18 @@ import { FaTrash } from 'react-icons/fa';
 import GenreAddModal from './GenreAddModal';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useQueryClient } from '@tanstack/react-query';
 
 
-const GenreTable = ({ data , getData }) => {
-
+const GenreTable = ({ data  }) => {
+    const queryClient = useQueryClient();
     async function deleteGenre(id) {
         try {
             await axios.delete(`https://x8ki-letl-twmt.n7.xano.io/api:j6hO02gL/genre/${id}`)
             toast.success("Genre deleted!");
-            getData();
+            queryClient.invalidateQueries({
+                queryKey: ["genries"]
+            })
         } catch (err) {
             console.log(err);
 
@@ -62,7 +65,7 @@ const GenreTable = ({ data , getData }) => {
     ];
     return(
         <div>
-            <GenreAddModal getData={getData} />
+            <GenreAddModal />
             <Table columns={columns} dataSource={data} />;
         </div>
     )

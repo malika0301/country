@@ -1,15 +1,15 @@
 import React from 'react'
-import useGet from '../hooks/useGet';
 import MovieGenreTable from '../components/MovieGenreTable';
+import useReactQuery from '../pages/useReactQuery';
 
 
 const MovieGenre = () => {
-    const { data: genre, getData: getgenre } = useGet({ url: "genre" });
-    const { data: movie, getData: getMovie } = useGet({ url: "movie" });
-    const { data: movieGenre, getData: getMovieGenre } = useGet({ url: "movie_genre" });
+    const { data: genre } = useReactQuery({  key:"genries", url: "genre" });
+    const { data: movie } = useReactQuery({ key: "movies", url: "movie" });
+    const { data: movieGenre } = useReactQuery({ key:"movie_genries", url: "movie_genre" });
     return (
         <div>
-            <MovieGenreTable genre={genre} getgenre={getgenre} movie={movie} getMovie={getMovie} movieGenre={movieGenre} getMovieGenre={getMovieGenre} />
+            <MovieGenreTable genre={genre?.data} movie={movie?.data}  movieGenre={movieGenre?.data}/>
         </div>
     )
 }

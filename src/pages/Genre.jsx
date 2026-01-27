@@ -1,12 +1,13 @@
 import React from 'react'
-import useGet from '../hooks/useGet'
 import GenreTable from '../components/GenreTable'
+import useReactQuery from './useReactQuery'
 
 const Genre = () => {
-  const { data , getData } = useGet({ url: "genre" })
+  const { data, isLoading } = useReactQuery({ url: "genre", key: "genries" })
+
   return (
     <div>
-      <GenreTable data={data} getData={getData} />
+      <GenreTable data={data?.data} />
     </div>
   )
 }
